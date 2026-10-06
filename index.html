@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vysum | Eyedrop Use Results</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ======================================================
+     HEADER
+====================================================== -->
+<header class="topbar">
+
+  <div class="brand">
+    <div class="logo">V</div>
+
+    <div>
+      <h2>VYSUM</h2>
+      <p>Eyedrop Use Results</p>
+    </div>
+  </div>
+
+  <div class="topbar-actions">
+    <a class="history-link" href="history.html">History</a>
+    <div class="prototype-label">
+      RESULTS
+    </div>
+  </div>
+
+</header>
+
+
+<!-- ======================================================
+     MAIN PAGE
+====================================================== -->
+<main>
+
+  <div class="page-title">
+
+    <div>
+      <p class="small-title">EYE DROP USE</p>
+
+      <h1>Eyedrop Use Results</h1>
+
+    </div>
+
+  </div>
+
+
+  <div class="main-layout">
+
+
+    <!-- ==================================================
+         LEFT SIDE - SESSIONS
+    =================================================== -->
+    <aside class="session-panel">
+
+      <p class="small-title">RECENT ATTEMPTS</p>
+
+      <h2>Attempts</h2>
+
+      <div id="sessionList"></div>
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         RIGHT SIDE
+    =================================================== -->
+    <section class="dashboard">
+
+
+      <!-- FINAL RESULT -->
+      <section class="card result-card">
+
+        <div class="result-header">
+
+          <div>
+            <p class="small-title">SELECTED ATTEMPT</p>
+            <h2 id="sessionId"></h2>
+          </div>
+
+          <div class="session-date">
+            <span id="sessionDate"></span>
+
+            <span class="complete-badge">
+              Results ready
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="final-result">
+
+          <div id="resultIcon" class="result-icon">
+            ✓
+          </div>
+
+
+          <div class="result-text">
+
+            <p class="small-title">
+              RESULT
+            </p>
+
+            <h1 id="finalDecision">
+              CONTACT DETECTED
+            </h1>
+
+            <p id="resultDescription"></p>
+
+          </div>
+
+
+          <div class="confidence">
+
+            <p>How sure is this result?</p>
+
+            <h2 id="confidenceValue">
+              94%
+            </h2>
+
+            <div class="confidence-bar">
+
+              <div id="confidenceFill"></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ==================================================
+           VIDEO + DROPPER
+      =================================================== -->
+
+      <div class="two-column">
+
+
+        <!-- VIDEO CHECK -->
+        <section class="card">
+
+          <div class="section-heading">
+
+            <span class="step-number">01</span>
+
+            <div>
+              <p class="small-title">VIDEO CHECK</p>
+              <h2>What the video shows</h2>
+            </div>
+
+          </div>
+
+
+          <div class="video-preview">
+
+            <div class="eye">
+
+              <div class="iris">
+
+                <div class="pupil"></div>
+
+              </div>
+
+            </div>
+
+
+            <div class="drop"></div>
+
+
+            <div class="detection-box">
+              eye area
+            </div>
+
+
+            <span id="frameNumber" class="frame-number">
+              Video moment 184
+            </span>
+
+          </div>
+
+
+          <div id="videoMetrics"></div>
+
+        </section>
+
+
+
+        <!-- DROPPER READING -->
+        <section class="card">
+
+          <div class="section-heading">
+
+            <span class="step-number">02</span>
+
+            <div>
+              <p class="small-title">DROPPER READING</p>
+              <h2>Dropper check</h2>
+            </div>
+
+          </div>
+
+
+          <div class="sensor-chart">
+
+            <svg viewBox="0 0 600 150"
+                 preserveAspectRatio="none">
+
+              <polyline
+                id="sensorLine"
+                points="
+                0,110
+                50,108
+                100,112
+                150,104
+                200,108
+                240,98
+                270,85
+                300,35
+                325,92
+                350,78
+                390,103
+                450,108
+                500,101
+                550,108
+                600,105">
+              </polyline>
+
+            </svg>
+
+            <span>
+              Dropper reading over time
+            </span>
+
+          </div>
+
+
+          <div id="sensorMetrics"></div>
+
+        </section>
+
+      </div>
+
+
+
+      <!-- ==================================================
+           SUMMARY
+      =================================================== -->
+
+      <section class="card">
+
+        <div class="section-heading">
+
+          <span class="step-number">03</span>
+
+          <div>
+
+            <p class="small-title">
+              SUMMARY
+            </p>
+
+            <h2>What this attempt shows</h2>
+
+          </div>
+
+
+          <span class="mock-ai">
+            SAMPLE SUMMARY
+          </span>
+
+        </div>
+
+
+        <div class="ai-result">
+
+          <div class="ai-icon">
+            Note
+          </div>
+
+
+          <div>
+
+            <p id="vlmAnalysis"></p>
+
+            <p class="mock-warning">
+
+              These are made-up examples. No real videos are used,
+              and this page does not make medical decisions.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ==================================================
+           CHECKS + EVENTS
+      =================================================== -->
+
+      <div class="two-column">
+
+
+        <!-- COMBINED CHECKS -->
+        <section class="card">
+
+          <div class="section-heading">
+
+            <span class="step-number">04</span>
+
+            <div>
+
+              <p class="small-title">
+                TWO SOURCES CHECKED
+              </p>
+
+              <h2>Checks from both sources</h2>
+
+            </div>
+
+          </div>
+
+
+          <div id="fusionResults"></div>
+
+        </section>
+
+
+
+        <!-- EVENTS IN ORDER -->
+        <section class="card">
+
+          <div class="section-heading">
+
+            <span class="step-number">05</span>
+
+            <div>
+
+              <p class="small-title">
+                WHAT HAPPENED, IN ORDER
+              </p>
+
+              <h2>Drop use, step by step</h2>
+
+            </div>
+
+          </div>
+
+
+          <div id="fsmResults"></div>
+
+        </section>
+
+      </div>
+
+
+
+      <!-- ==================================================
+           RECORD DETAILS
+      =================================================== -->
+
+      <section class="card">
+
+        <div class="section-heading">
+
+          <span class="step-number">06</span>
+
+          <div>
+
+            <p class="small-title">
+              SAMPLE RECORD
+            </p>
+
+            <h2>Record details</h2>
+
+          </div>
+
+        </div>
+
+
+        <div id="auditInformation"
+             class="audit-grid">
+        </div>
+
+      </section>
+
+
+      <section class="card">
+
+        <div class="section-heading">
+
+          <span class="step-number">07</span>
+
+          <div>
+
+            <p class="small-title">
+              SELECTED ATTEMPT
+            </p>
+
+            <h2>Recorded data</h2>
+
+          </div>
+
+        </div>
+
+        <p class="recorded-data-note">
+          All available details for this sample attempt.
+        </p>
+
+        <div id="recordedData" class="recorded-data-grid"></div>
+
+      </section>
+
+
+    </section>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  Vysum sample page — information about eye drop use.
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
